@@ -14,7 +14,7 @@ jobs:
     stage: build
     env: GOOS=linux GOARCH=amd64
     install: true
-    script: go build main.go
+    script: go run main.go
 
   - &test-stage
     stage: test
