@@ -1,7 +1,21 @@
+os:             linux
+dist:           xenial
+
 language: go
 
 go:
 - "1.14"
 - master
 
-script: go test ./... -v -cover
+jobs:
+  include:
+
+  - &build-stage
+    stage: build
+    env: GOOS=linux GOARCH=amd64
+    install: true
+    script: go build main.go
+
+  - &test-stage
+    stage: test
+    script: go test ./... -v -cover
