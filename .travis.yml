@@ -16,6 +16,5 @@ jobs:
     install: true
     script: go run main.go
 
-  - &test-stage
-    stage: test
-    script: go test ./... -v -cover
+   - stage: test
+     script: go test ./... -v -cover
